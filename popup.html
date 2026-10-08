@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IRCTC Autofill</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+
+    <h1>IRCTC Autofill</h1>
+
+    <button id="startAutofill" class="start-button">
+        Start Autofill
+    </button>
+
+    <h2>Passengers</h2>
+
+    <div id="passengers"></div>
+
+    <button id="addPassenger" class="secondary-button">
+        + Add Passenger
+    </button>
+
+    <button id="savePassengers" class="save-button">
+        Save Passengers
+    </button>
+
+    <h2>Payment</h2>
+
+    <select id="paymentMode">
+        <option value="2">BHIM / UPI</option>
+        <option value="3">
+            Cards / Net Banking / Wallets / Others
+        </option>
+    </select>
+
+    <br><br>
+
+    <script src="popup.js"></script>
+
+</body>
+
+</html>
