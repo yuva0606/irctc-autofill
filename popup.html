@@ -8,38 +8,85 @@
 </head>
 
 <body>
+    <main class="popup-shell">
+        <header class="app-header">
+            <p class="eyebrow">IRCTC AUTOFILL</p>
+            <h1>Passenger details</h1>
+            <p class="header-copy">Choose a saved journey and fill its details when ready.</p>
+        </header>
 
-    <h1>IRCTC Autofill</h1>
+        <button id="startAutofill" class="start-button">
+            Autofill selected journey
+        </button>
 
-    <button id="startAutofill" class="start-button">
-        Start Autofill
-    </button>
+        <section class="section" aria-labelledby="journey-heading">
+            <div class="section-heading">
+                <h2 id="journey-heading">Journeys</h2>
+                <span class="journey-limit">Up to 5</span>
+            </div>
+            <div id="journeyTabs" class="journey-tabs" role="tablist"
+                aria-label="Saved journeys"></div>
+            <button id="addJourney" class="add-journey-button">+ New journey</button>
+        </section>
 
-    <h2>Passengers</h2>
+        <section class="section" aria-labelledby="passenger-heading">
+            <div class="section-heading">
+                <h2 id="passenger-heading">Passengers</h2>
+            </div>
+            <div id="passengers"></div>
+            <button id="addPassenger" class="secondary-button">+ Add passenger</button>
+        </section>
 
-    <div id="passengers"></div>
+        <section class="section settings-section" aria-labelledby="settings-heading">
+            <h2 id="settings-heading">Booking preferences</h2>
 
-    <button id="addPassenger" class="secondary-button">
-        + Add Passenger
-    </button>
+            <label class="field-label" for="paymentMode">Payment type</label>
+            <select id="paymentMode">
+                <option value="2">BHIM / UPI</option>
+                <option value="3">Cards / Net Banking / Wallets / Others</option>
+            </select>
 
-    <button id="savePassengers" class="save-button">
-        Save Passengers
-    </button>
+            <label class="contact-toggle">
+                <input type="checkbox" id="bookOnlyIfConfirmed">
+                <span>
+                    <strong>Book only if confirmed berths are allotted</strong>
+                    <small>IRCTC will enable this booking condition for this journey.</small>
+                </span>
+            </label>
 
-    <h2>Payment</h2>
+            <label class="contact-toggle">
+                <input type="checkbox" id="preferredCoachEnabled">
+                <span>
+                    <strong>Specify preferred coach number</strong>
+                    <small>Only enabled journeys fill a preferred coach on IRCTC.</small>
+                </span>
+            </label>
 
-    <select id="paymentMode">
-        <option value="2">BHIM / UPI</option>
-        <option value="3">
-            Cards / Net Banking / Wallets / Others
-        </option>
-    </select>
+            <div id="preferredCoachContainer" hidden>
+                <label class="field-label" for="preferredCoachNumber">Preferred coach number</label>
+                <input type="text" id="preferredCoachNumber" maxlength="4"
+                    placeholder="Preferred Coach No.">
+            </div>
 
-    <br><br>
+            <label class="contact-toggle">
+                <input type="checkbox" id="fillContact">
+                <span>
+                    <strong>Fill passenger contact number</strong>
+                    <small>Only enabled journeys update this field on IRCTC.</small>
+                </span>
+            </label>
+
+            <div id="contactNumberContainer" hidden>
+                <label class="field-label" for="contactNumber">Contact number</label>
+                <input type="tel" id="contactNumber" placeholder="10-digit mobile number"
+                    inputmode="numeric" maxlength="10">
+            </div>
+        </section>
+
+        <button id="savePassengers" class="save-button">Save journey</button>
+    </main>
 
     <script src="popup.js"></script>
-
 </body>
 
 </html>

@@ -1,85 +1,247 @@
-body {
-    width: 360px;
-    padding: 16px;
-    margin: 0;
-
+:root {
+    color: #14213d;
+    background: #f4f7fb;
     font-family: Arial, sans-serif;
 }
 
-h1 {
-    margin-top: 0;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 390px;
+    margin: 0;
+    background: #f4f7fb;
+}
+
+.popup-shell {
+    padding: 18px;
+}
+
+.app-header {
     margin-bottom: 16px;
-    font-size: 22px;
+}
+
+.eyebrow {
+    margin: 0 0 5px;
+    color: #d55b16;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 5px;
+    font-size: 23px;
 }
 
 h2 {
-    margin-top: 20px;
-    font-size: 18px;
+    margin-bottom: 0;
+    font-size: 15px;
 }
 
-.start-button {
-    width: 100%;
-    padding: 14px;
-
-    font-size: 18px;
-    font-weight: bold;
-
-    border: none;
-    border-radius: 8px;
-
-    cursor: pointer;
+.header-copy {
+    margin-bottom: 0;
+    color: #60708e;
+    font-size: 13px;
+    line-height: 1.4;
 }
 
-.start-button:hover {
-    opacity: 0.9;
+.section {
+    margin-top: 18px;
 }
 
-.passenger {
-    padding: 12px;
-    margin-bottom: 12px;
-
-    border: 1px solid #ccc;
-    border-radius: 8px;
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 9px;
 }
 
-.passenger h3 {
-    margin-top: 0;
+.journey-limit {
+    color: #60708e;
+    font-size: 12px;
 }
 
-.passenger input,
-.passenger select {
-    width: 100%;
-    box-sizing: border-box;
-
-    padding: 8px;
-    margin-bottom: 8px;
-
-    border: 1px solid #ccc;
-    border-radius: 5px;
+button,
+input,
+select {
+    font: inherit;
 }
 
 button {
     cursor: pointer;
 }
 
-.secondary-button,
+.start-button,
 .save-button {
     width: 100%;
+    border: 0;
+    border-radius: 9px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.start-button {
+    padding: 13px;
+    background: #e86619;
+    box-shadow: 0 4px 10px rgba(232, 102, 25, 0.25);
+}
+
+.start-button:hover,
+.save-button:hover {
+    filter: brightness(0.95);
+}
+
+.journey-tabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+}
+
+.journey-tab {
+    flex: 0 0 auto;
+    border: 1px solid #d7deeb;
+    border-radius: 7px;
+    padding: 8px 11px;
+    color: #52627d;
+    background: #fff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.journey-tab[aria-selected="true"] {
+    border-color: #183b70;
+    color: #fff;
+    background: #183b70;
+}
+
+.add-journey-button,
+.secondary-button {
+    width: 100%;
+    margin-top: 9px;
     padding: 10px;
-    margin-top: 8px;
+    border: 1px dashed #aebbd0;
+    border-radius: 8px;
+    color: #183b70;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 700;
+}
 
-    border: none;
-    border-radius: 6px;
+.add-journey-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
 
+.passenger,
+.settings-section {
+    padding: 13px;
+    border: 1px solid #e0e6f0;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(20, 33, 61, 0.03);
+}
+
+.passenger {
+    margin-bottom: 10px;
+}
+
+.passenger h3 {
+    margin: 0 0 10px;
+    color: #183b70;
     font-size: 14px;
+}
+
+.passenger hr {
+    display: none;
+}
+
+.passenger input,
+.passenger select,
+#paymentMode,
+#contactNumber,
+#preferredCoachNumber {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 9px 10px;
+    border: 1px solid #ccd5e3;
+    border-radius: 6px;
+    color: #14213d;
+    background: #fff;
 }
 
 .removePassenger {
     width: 100%;
-    padding: 7px;
+    padding: 8px;
+    border: 0;
+    border-radius: 6px;
+    color: #b42318;
+    background: #fff1f0;
+    font-size: 12px;
+    font-weight: 700;
+}
 
-    border: none;
-    border-radius: 5px;
+.field-label {
+    display: block;
+    margin: 13px 0 6px;
+    color: #43516a;
+    font-size: 12px;
+    font-weight: 700;
+}
 
+.settings-section h2 {
+    margin-bottom: 2px;
+}
+
+.settings-section .field-label:first-of-type {
+    margin-top: 12px;
+}
+
+.contact-toggle {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+    margin-top: 10px;
+    padding-top: 11px;
+    border-top: 1px solid #e7ebf2;
     cursor: pointer;
+}
+
+.contact-toggle input {
+    margin: 2px 0 0;
+}
+
+.contact-toggle strong,
+.contact-toggle small {
+    display: block;
+}
+
+.contact-toggle strong {
+    font-size: 13px;
+}
+
+.contact-toggle small {
+    margin-top: 3px;
+    color: #60708e;
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+#contactNumberContainer .field-label,
+#preferredCoachContainer .field-label {
+    margin-top: 10px;
+}
+
+.save-button {
+    margin-top: 18px;
+    padding: 12px;
+    background: #183b70;
 }
